@@ -36,8 +36,7 @@ func NewLoadBalancer(backends []*Backend) *LoadBalancer {
 }
 
 func (lb *LoadBalancer) getServer() *Backend {
-	backendCount := len(lb.Backends)
-	for i := 0; i < backendCount; i++ {
+	for i := 0; i < len(lb.Backends); i++ {
 		index := atomic.AddUint32(&lb.current, 1) % uint32(backendCount)
 		backend := lb.Backends[index]
 		if backend.isAlive {
