@@ -11,3 +11,4 @@ It also contains the common design or patterns and protocols to be applied for a
 
 - [Plugin](lld/plugin/plugin.md)
 - [LoadBalancer](lld/load-balancer/loadbalancer.md)
+- [CLI](https://github.com/arpitfs/statistics-cli)
