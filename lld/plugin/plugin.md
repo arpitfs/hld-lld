@@ -13,4 +13,4 @@ The above command creates a complies the so file which is converted into machine
 
 The plugin provides methods to relink and relocate the symbols which on runtime can be loaded to the memory and cpu get the address of the instruction during execution.
 
-View the implementation : [lb](./main.go)
+View the implementation : [plugin](./main.go)
