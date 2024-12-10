@@ -1,0 +1,67 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"net/http/httputil"
+	"net/url"
+	"sync/atomic"
+)
+
+type Backend struct {
+	url     string
+	isAlive bool
+	proxy   *httputil.ReverseProxy
+}
+
+type LoadBalancer struct {
+	Backends []*Backend
+	current  uint32
+}
+
+func CreateBackend(server string) *Backend {
+	serverUrl, _ := url.Parse(server)
+	return &Backend{
+		url:     server,
+		isAlive: true,
+		proxy:   httputil.NewSingleHostReverseProxy(serverUrl),
+	}
+}
+
+func NewLoadBalancer(backends []*Backend) *LoadBalancer {
+	return &LoadBalancer{
+		Backends: backends,
+	}
+}
+
+func (lb *LoadBalancer) getServer() *Backend {
+	backendCount := len(lb.Backends)
+	for i := 0; i < backendCount; i++ {
+		index := atomic.AddUint32(&lb.current, 1) % uint32(backendCount)
+		backend := lb.Backends[index]
+		if backend.isAlive {
+			return backend
+		}
+	}
+	return nil
+}
+
+func (lb *LoadBalancer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	lb.getServer().proxy.ServeHTTP(w, r)
+}
+
+func main() {
+	backends := []*Backend{
+		CreateBackend("https://github.com/arpitfs"),
+		CreateBackend("https://arpitfs.github.io/portfolio"),
+		CreateBackend("https://arpitfs.medium.com/"),
+	}
+
+	lb := NewLoadBalancer(backends)
+
+	// Perfrom health check periodically
+
+	fmt.Println("Ready to serve requests")
+	log.Fatal(http.ListenAndServe(":8080", lb))
+}
