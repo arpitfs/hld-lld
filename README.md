@@ -10,3 +10,4 @@ It also contains the common design or patterns and protocols to be applied for a
 ## LLD
 
 - [Plugin](lld/plugin/plugin.md)
+- [LoadBalancer](lld/load-balancer/loadbalancer.md)
