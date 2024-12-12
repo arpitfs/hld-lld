@@ -15,3 +15,4 @@ It also contains the common design or patterns and protocols to be applied for a
 - [LRU](https://github.com/arpitfs/dsa/tree/main/lru)
 - [ServiceDiscovery](https://github.com/arpitfs/service-discovery)
 - [IdentityServer](https://github.com/arpitfs/identity-tokenizer)
+- [KeySet-Offset-Response](lld/api/api.md)
