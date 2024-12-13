@@ -16,3 +16,4 @@ It also contains the common design or patterns and protocols to be applied for a
 - [ServiceDiscovery](https://github.com/arpitfs/service-discovery)
 - [IdentityServer](https://github.com/arpitfs/identity-tokenizer)
 - [KeySet-Offset-Response](lld/api/api.md)
+- [Scaling-MonitoringAgent](lld/scaling/scaling.md)
