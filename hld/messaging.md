@@ -2,7 +2,7 @@
 
 The messaging design is below with basic functionality like send message, message status.
 
-![messaging](../designs/messaging.png)
+![messaging](../assets/messaging.png)
 
 The websocket connection or protocol is required to do the communication so that the infomation can be bidirectional.
 The connection handler will be used to send the messages and to the designated user which uses Redis database to store the user information and it would contain a cache which can be used reduce the redis calls and share the details with message service which will save the information in the column database like cassendra, which is designed to store the message related information.
