@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"encoding/json"
@@ -88,10 +88,10 @@ func getCursorPaginatedData(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-func main() {
+func API() {
 	http.HandleFunc("/pagination", getPaginatedData)
 	http.HandleFunc("/cursorpagination", getCursorPaginatedData)
 
-	fmt.Println("Server running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fmt.Println("API Server running on http://localhost:8081")
+	log.Fatal(http.ListenAndServe(":8081", nil))
 }

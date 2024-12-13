@@ -1,4 +1,4 @@
-package main
+package loadbalancer
 
 import (
 	"fmt"
@@ -37,7 +37,7 @@ func NewLoadBalancer(backends []*Backend) *LoadBalancer {
 
 func (lb *LoadBalancer) getServer() *Backend {
 	for i := 0; i < len(lb.Backends); i++ {
-		index := atomic.AddUint32(&lb.current, 1) % uint32(backendCount)
+		index := atomic.AddUint32(&lb.current, 1) % uint32(len(lb.Backends))
 		backend := lb.Backends[index]
 		if backend.isAlive {
 			return backend
@@ -50,7 +50,7 @@ func (lb *LoadBalancer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	lb.getServer().proxy.ServeHTTP(w, r)
 }
 
-func main() {
+func StartLoadBalancer() {
 	backends := []*Backend{
 		CreateBackend("https://github.com/arpitfs"),
 		CreateBackend("https://arpitfs.github.io/portfolio"),
@@ -61,6 +61,6 @@ func main() {
 
 	// Perfrom health check periodically
 
-	fmt.Println("Ready to serve requests")
+	fmt.Println("Load Balancer read to server at 8080")
 	log.Fatal(http.ListenAndServe(":8080", lb))
 }

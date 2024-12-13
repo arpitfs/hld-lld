@@ -1,11 +1,11 @@
-package main
+package plugin
 
 import (
 	"fmt"
 	"plugin"
 )
 
-func main() {
+func StatisticsPlugin() {
 	p, err := plugin.Open("statisticsPlugin.so")
 	if err != nil {
 		fmt.Println("Error Loading Plugin")
