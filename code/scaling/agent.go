@@ -7,6 +7,6 @@ import (
 func RunAgent() {
 	for {
 		monitorServices()
-		time.Sleep(10 * time.Second)
+		time.Sleep(MonitoringTimePeriod * time.Second)
 	}
 }

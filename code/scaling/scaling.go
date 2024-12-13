@@ -11,7 +11,8 @@ import (
 )
 
 const (
-	MemoryThreshold = 0.1
+	MemoryThreshold      = 0.1
+	MonitoringTimePeriod = 10
 )
 
 func monitorServices() {
@@ -63,7 +64,7 @@ func monitorServices() {
 }
 
 func checkThresholdCrossed(memoryInGB float64) bool {
-	if memoryInGB > 0.1 {
+	if memoryInGB > MemoryThreshold {
 		return true
 	}
 	return false
