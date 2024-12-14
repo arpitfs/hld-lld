@@ -17,3 +17,4 @@ It also contains the common design or patterns and protocols to be applied for a
 - [IdentityServer](https://github.com/arpitfs/identity-tokenizer)
 - [KeySet-Offset-Response](lld/api/api.md)
 - [Scaling-MonitoringAgent](lld/scaling/scaling.md)
+- [IdempotentEndpoint](lld/idempotent/idempotent.md)
