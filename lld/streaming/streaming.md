@@ -8,4 +8,4 @@ If the process is not completed the server stream events pattern can be used to 
 
 ![Streaming](../../assets/streaming.png)
 
-View the implementation: [Repository](../../code/logs-streaming/streaming.go)
+View the implementation: [Repository](../../code/data-streaming/streaming.go)
