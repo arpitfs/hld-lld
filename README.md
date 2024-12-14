@@ -18,3 +18,4 @@ It also contains the common design or patterns and protocols to be applied for a
 - [KeySet-Offset-Response](lld/api/api.md)
 - [Scaling-MonitoringAgent](lld/scaling/scaling.md)
 - [IdempotentEndpoint](lld/idempotent/idempotent.md)
+- [DataStreaming-SSE](lld/streaming/streaming.md)

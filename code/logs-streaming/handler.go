@@ -1,27 +1,20 @@
 package streaming
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 )
+
+func handler() {
+	http.HandleFunc("/streaming", streamingHandler)
+	log.Println("Streaming Server started at :8083")
+	log.Fatal(http.ListenAndServe(":8083", nil))
+}
 
 func streamingHandler(w http.ResponseWriter, r *http.Request) {
 	if !isProcessCompleted {
 		streamLogs(w, r)
 	} else {
-		http.ServeFile(w, r, fileName)
+		http.ServeFile(w, r, FileName)
 	}
-}
-
-func streamLogs(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/event-stream")
-	w.Header().Set("Cache-Control", "no-cache")
-	w.Header().Set("Connection", "keep-alive")
-
-	for logMsg := range stramingChannel {
-		fmt.Fprintf(w, "data: %s\n\n", logMsg)
-		w.(http.Flusher).Flush()
-	}
-
-	w.(http.Flusher).Flush()
 }
