@@ -9,11 +9,12 @@ import (
 )
 
 const (
-	FileName     = "streaming.log"
-	Capacity     = 100
-	ContentType  = "text/event-stream"
-	CacheControl = "no-cache"
-	Connection   = "keep-alive"
+	FileName                 = "streaming.log"
+	Capacity                 = 100
+	ContentType              = "text/event-stream"
+	CacheControl             = "no-cache"
+	Connection               = "keep-alive"
+	ProcessingWaitTimePeriod = 4
 )
 
 var streamingChannel = make(chan string, Capacity)
@@ -44,7 +45,7 @@ func generateLogs() {
 		message := fmt.Sprintf("%d ) Streaming", i)
 		logger.Println(message)
 		streamingChannel <- message
-		time.Sleep(2 * time.Second)
+		time.Sleep(ProcessingWaitTimePeriod * time.Second)
 	}
 	close(streamingChannel)
 	isProcessCompleted = true
