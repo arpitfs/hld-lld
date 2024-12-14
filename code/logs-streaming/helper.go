@@ -9,17 +9,20 @@ import (
 )
 
 const (
-	FileName = "streaming.log"
-	Capacity = 100
+	FileName     = "streaming.log"
+	Capacity     = 100
+	ContentType  = "text/event-stream"
+	CacheControl = "no-cache"
+	Connection   = "keep-alive"
 )
 
 var streamingChannel = make(chan string, Capacity)
 var isProcessCompleted = false
 
 func streamLogs(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/event-stream")
-	w.Header().Set("Cache-Control", "no-cache")
-	w.Header().Set("Connection", "keep-alive")
+	w.Header().Set("Content-Type", ContentType)
+	w.Header().Set("Cache-Control", CacheControl)
+	w.Header().Set("Connection", Connection)
 
 	for stream := range streamingChannel {
 		fmt.Fprintf(w, "data: %s\n\n", stream)
@@ -38,7 +41,7 @@ func generateLogs() {
 	defer streamingLogFile.Close()
 	logger := log.New(streamingLogFile, "", log.Ldate|log.Ltime)
 	for i := 1; i <= Capacity; i++ {
-		message := fmt.Sprintf("%d ) Processing Streaming", i)
+		message := fmt.Sprintf("%d ) Streaming", i)
 		logger.Println(message)
 		streamingChannel <- message
 		time.Sleep(2 * time.Second)
