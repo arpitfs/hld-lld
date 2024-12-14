@@ -13,7 +13,7 @@ const (
 	Capacity = 100
 )
 
-var stramingChannel = make(chan string, Capacity)
+var streamingChannel = make(chan string, Capacity)
 var isProcessCompleted = false
 
 func streamLogs(w http.ResponseWriter, r *http.Request) {
@@ -21,8 +21,8 @@ func streamLogs(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Cache-Control", "no-cache")
 	w.Header().Set("Connection", "keep-alive")
 
-	for logMsg := range stramingChannel {
-		fmt.Fprintf(w, "data: %s\n\n", logMsg)
+	for stream := range streamingChannel {
+		fmt.Fprintf(w, "data: %s\n\n", stream)
 		w.(http.Flusher).Flush()
 	}
 
@@ -40,9 +40,9 @@ func generateLogs() {
 	for i := 1; i <= Capacity; i++ {
 		message := fmt.Sprintf("%d ) Processing Streaming", i)
 		logger.Println(message)
-		stramingChannel <- message
+		streamingChannel <- message
 		time.Sleep(2 * time.Second)
 	}
-	close(stramingChannel)
+	close(streamingChannel)
 	isProcessCompleted = true
 }
