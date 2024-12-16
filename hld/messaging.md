@@ -1,4 +1,4 @@
-# Messaging
+## Messaging Design
 
 The messaging design is below with basic functionality like send message, message status.
 
@@ -11,6 +11,6 @@ For message status once the information is reached to connection handler the sta
 
 The connection handler will communicate which user is avilable or not.
 
-## Cloud
+### Messanging On Cloud
 
 In case of cloud services we can use api gateway instead of load balancer and which can be directly connected service queues like sqs (AWS) or ASB (Azure) and api gateway will directly communicate or store messages in this case and we can use lambda or azure functions for the processing.
