@@ -15,15 +15,18 @@ const (
 	CacheControl             = "no-cache"
 	Connection               = "keep-alive"
 	ProcessingWaitTimePeriod = 4
+	ContentTypeHeader        = "Content-Type"
+	CacheControlHeader       = "Cache-Control"
+	ConnectionHeader         = "Connection"
 )
 
 var streamingChannel = make(chan string, Capacity)
 var isProcessCompleted = false
 
 func streamLogs(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", ContentType)
-	w.Header().Set("Cache-Control", CacheControl)
-	w.Header().Set("Connection", Connection)
+	w.Header().Set(ContentTypeHeader, ContentType)
+	w.Header().Set(CacheControlHeader, CacheControl)
+	w.Header().Set(ConnectionHeader, Connection)
 
 	for stream := range streamingChannel {
 		fmt.Fprintf(w, "data: %s\n\n", stream)
