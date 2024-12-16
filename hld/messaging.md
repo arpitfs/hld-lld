@@ -1,6 +1,9 @@
 ## Messaging Design
 
-The messaging design is below with basic functionality like send message, message status.
+The messaging design is below with basic functionality like
+
+- Send message
+- Message status.
 
 ![messaging](../assets/messaging.png)
 
