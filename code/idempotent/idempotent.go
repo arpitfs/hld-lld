@@ -30,7 +30,7 @@ func processRequest(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode("Request Processed Successfully")
 	} else {
 		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusConflict)
+		w.WriteHeader(http.StatusTooManyRequests)
 		json.NewEncoder(w).Encode("Duplicate Request")
 	}
 
