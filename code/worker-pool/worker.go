@@ -2,52 +2,37 @@ package workerpool
 
 import (
 	"fmt"
-	"strconv"
+	"sync"
 	"time"
 )
 
-const (
-	QueueSize = 5
-)
-
-type Worker struct {
-	jobQueue    chan []Job
-	workerCount int
-}
-
-func Start() {
-	workerPool := &Worker{
-		jobQueue:    make(chan []Job, QueueSize),
-		workerCount: 3,
-	}
-
-	workerPool.startWorking()
-}
-
-func (w *Worker) startWorking() {
+func manager(jobQueue chan string, wg sync.WaitGroup, workers chan struct{}) {
 	for {
-		if len(w.jobQueue) > 0 {
-			job := w.jobQueue[0]
-		} else {
-			fmt.Println("No job to perform")
+		time.Sleep(7 * time.Second)
+		select {
+		case data := <-jobQueue:
+			fmt.Println("Manager picked:", data)
+			select {
+			case workers <- struct{}{}:
+				wg.Add(1)
+				go func(text string) {
+					defer func() {
+						<-workers
+						wg.Done()
+					}()
+					processText(data)
+				}(data)
+			default:
+				fmt.Println("No resources to process text:", data)
+			}
+		default:
+			fmt.Println("No job to process!")
 		}
-		time.Sleep(5 * time.Second)
 	}
 }
 
-func (w *Worker) submitJob(job Job) {
-	w.jobQueue <- job
-}
-
-func (w *Worker) createJobs() {
-	count := 0
-	for {
-		job := Job{
-			id:  count,
-			job: "Current Job: " + strconv.Itoa(count),
-		}
-		w.submitJob(job)
-		count++
-		time.Sleep(3 * time.Second)
-	}
+func processText(data string) {
+	fmt.Println("Processing:", data)
+	time.Sleep(3 * time.Second)
+	fmt.Println("Completed processing:", data)
 }
