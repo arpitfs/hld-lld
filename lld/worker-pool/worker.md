@@ -1,3 +1,3 @@
 ## Worker Pool
 
-![Worker](../../assets/worker.png)
+![Worker](../../assets/worker-pool.png)
