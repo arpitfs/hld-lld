@@ -8,7 +8,7 @@ It also contains the common design or patterns and protocols to be applied for a
 - [Messaging](hld/messaging.md)
 - [Twitter](hld/twitter.md)
 - [Notification](hld/notification.md)
-- [VideStreaming](hld/video-streaming.md) <span style="background-color: blue;">Upcoming</span>
+- [VideStreaming](hld/video-streaming.md) - <span style="background-color: blue;">Upcoming</span>
 
 ## LLD
 
@@ -23,4 +23,4 @@ It also contains the common design or patterns and protocols to be applied for a
 - [IdempotentEndpoint](lld/idempotent/idempotent.md)
 - [Data-Streaming-SSE](lld/streaming/streaming.md)
 - [WorkerPool](lld/worker-pool/worker.md) - <span style="background-color: blue;">In Progress</span>
-- [Gateway-With-Rate-Limitor](lld/gateway/gateway.md) <span style="background-color: blue;">Upcoming</span>
+- [Gateway-With-Rate-Limitor](lld/gateway/gateway.md) - <span style="background-color: blue;">Upcoming</span>
