@@ -8,6 +8,7 @@ It also contains the common design or patterns and protocols to be applied for a
 - [Messaging](hld/messaging.md)
 - [Twitter](hld/twitter.md)
 - [Notification](hld/notification.md)
+- [VideStreaming](hld/video-streaming.md) <span style="background-color: blue;">Upcoming</span>
 
 ## LLD
 
@@ -20,6 +21,6 @@ It also contains the common design or patterns and protocols to be applied for a
 - [KeySet-Offset-Response](lld/api/api.md)
 - [Scaling-MonitoringAgent](lld/scaling/scaling.md)
 - [IdempotentEndpoint](lld/idempotent/idempotent.md)
-- [WorkerPool](lld/worker-pool/worker.md)
 - [Data-Streaming-SSE](lld/streaming/streaming.md)
-- [Gateway-With-Rate-Limitor](lld/gateway/gateway.md)
+- [WorkerPool](lld/worker-pool/worker.md) - <span style="background-color: blue;">In Progress</span>
+- [Gateway-With-Rate-Limitor](lld/gateway/gateway.md) <span style="background-color: blue;">Upcoming</span>
