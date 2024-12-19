@@ -5,15 +5,6 @@ import (
 	"net/http"
 )
 
-const (
-	Backend1            = "http://localhost:8081"
-	Backend2            = "http://localhost:8082"
-	Port                = ":8080"
-	HttpMethodGet       = "GET"
-	BucketCapacity      = 5
-	BucketRefillingRate = 10
-)
-
 func StartHandlingRequest() {
 	server := requestHandlers()
 
