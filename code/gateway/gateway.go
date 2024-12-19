@@ -3,19 +3,20 @@ package gateway
 import (
 	"fmt"
 	"net/http"
-	"time"
+)
 
-	"github.com/gorilla/mux"
+const (
+	Backend1            = "http://localhost:8081"
+	Backend2            = "http://localhost:8082"
+	Port                = ":8080"
+	HttpMethodGet       = "GET"
+	BucketCapacity      = 5
+	BucketRefillingRate = 10
 )
 
 func StartHandlingRequest() {
-	router := mux.NewRouter()
-
-	tokenBucket := NewTokenBucket(5, 10*time.Second)
-	rateLimitMiddleware := rateLimitor(tokenBucket, router)
-	router.HandleFunc("/github", Proxy("http://localhost:8081")).Methods("GET")
-	router.HandleFunc("/website", Proxy("http://localhost:8082")).Methods("GET")
+	server := requestHandlers()
 
 	fmt.Println("API Gateway Started at port 8080")
-	http.ListenAndServe(":8080", rateLimitMiddleware)
+	http.ListenAndServe(Port, server)
 }

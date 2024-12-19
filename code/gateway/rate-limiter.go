@@ -2,48 +2,16 @@ package gateway
 
 import (
 	"net/http"
-	"sync"
 	"time"
+
+	"github.com/gorilla/mux"
 )
 
-type TokenBucket struct {
-	capacity      int
-	currentTokens int
-	rate          time.Duration
-	lastRefill    time.Time
-	mu            sync.Mutex
-}
+func setUpRateLimiter(router *mux.Router) http.Handler {
+	tokenBucket := NewTokenBucket(BucketCapacity, BucketRefillingRate*time.Second)
+	rateLimitMiddleware := rateLimitor(tokenBucket, router)
 
-func NewTokenBucket(capacity int, rate time.Duration) *TokenBucket {
-	return &TokenBucket{
-		capacity:      capacity,
-		currentTokens: capacity,
-		rate:          rate,
-		lastRefill:    time.Now(),
-	}
-}
-
-func (t *TokenBucket) isAllowed() bool {
-	t.mu.Lock()
-	defer t.mu.Unlock()
-
-	currentTime := time.Now()
-	timePassedFromLastRefill := currentTime.Sub(t.lastRefill)
-
-	newTokens := int(timePassedFromLastRefill / t.rate)
-	if newTokens > 0 {
-		t.currentTokens += newTokens
-		if t.currentTokens > t.capacity {
-			t.currentTokens = t.capacity
-		}
-		t.lastRefill = currentTime
-	}
-
-	if t.currentTokens > 0 {
-		t.currentTokens--
-		return true
-	}
-	return false
+	return rateLimitMiddleware
 }
 
 func rateLimitor(bucket *TokenBucket, next http.Handler) http.Handler {
