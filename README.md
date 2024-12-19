@@ -22,5 +22,6 @@ It also contains the common design or patterns and protocols to be applied for a
 - [Scaling-MonitoringAgent](lld/scaling/scaling.md)
 - [IdempotentEndpoint](lld/idempotent/idempotent.md)
 - [Data-Streaming-SSE](lld/streaming/streaming.md)
+- [Gateway-With-Rate-Limitor](lld/gateway/gateway.md)
 - [WorkerPool](lld/worker-pool/worker.md) - <span style="background-color: blue;">In Progress</span>
-- [Gateway-With-Rate-Limitor](lld/gateway/gateway.md) - <span style="background-color: blue;">Upcoming</span>
+- [High-Performing-API](lld/high-perf-api/high-performing-api.md) - <span style="background-color: blue;">Upcoming</span>
