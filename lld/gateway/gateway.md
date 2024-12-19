@@ -27,9 +27,11 @@ The gateway will redirect the request based on the url path.
 ![Website](../../assets/gateway-response-website.png)
 
 The request is intercepted and rate limitor validates if the request is allowed or not.
-The rate limitor fills the tokens at an interval and with a limited capacity and based on it allows the request to be routed to a specific server else it will response with ```429 Too Many Request```.
+The rate limitor fills the tokens at an interval and with a limited capacity and based on it allows the request to be routed to a specific server else it will response with ```429 Too Many Requests```.
 
 ![RateLimitor](../../assets/gateway-rate-limitor.png)
+
+View the implementation: [Repository](../../code/gateway/gateway.go)
 
 
 
