@@ -1,9 +1,6 @@
 package main
 
-import (
-	"main/backend"
-	"main/gateway"
-)
+import parkinglot "main/parking-lot"
 
 // uncomment to a specific system
 func main() {
@@ -13,6 +10,7 @@ func main() {
 	//scaling.RunAgent()
 	//idempotent.Idempotent()
 	//streaming.Streaming()
-	go backend.Backend()
-	gateway.StartHandlingRequest()
+	// go backend.Backend()
+	// gateway.StartHandlingRequest()
+	parkinglot.StartParking()
 }
