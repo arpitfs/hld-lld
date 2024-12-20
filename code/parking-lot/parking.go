@@ -11,29 +11,27 @@ const (
 
 func StartParking() {
 	parking := NewParking()
-	fmt.Println(parking.Park(Small))
-	fmt.Println(parking.Park(Small))
-	fmt.Println(parking.Park(Small))
-	fmt.Println(parking.Park(Small))
-	fmt.Println(parking.Park(Small))
-	fmt.Println(parking.Park(Small))
-	fmt.Println(parking.Park(Small))
-	fmt.Println(parking.Park(Medium))
+	fmt.Println(parking.Park(VehicleTypeSmall))
+	fmt.Println(parking.Park(VehicleTypeSmall))
+	fmt.Println(parking.Park(VehicleTypeSmall))
+	fmt.Println(parking.Park(VehicleTypeLarge))
+	fmt.Println(parking.Park(VehicleTypeSmall))
+	fmt.Println(parking.Park(VehicleTypeSmall))
+	fmt.Println(parking.Park(VehicleTypeSmall))
+	fmt.Println(parking.Park(VehicleTypeMedium))
 	parking.Leave(1, 1)
 	parking.DisplaySlots()
 }
 
 func (p *Parking) DisplaySlots() {
-	for _, levels := range p.levels {
+	for _, level := range p.levels {
 		fmt.Println()
-		fmt.Println("Parking Level", levels.levelNumber)
-		for _, slots := range levels.slots {
-			if slots.isVacant {
-				fmt.Printf("%d -> vacant, ", slots.slotNumber)
-
+		fmt.Println("Parking Level", level.levelNumber)
+		for _, slot := range level.slots {
+			if slot.isVacant {
+				fmt.Printf("%d -> vacant, ", slot.slotNumber)
 			} else {
-				fmt.Printf(" %d -> not vacant,", slots.slotNumber)
-
+				fmt.Printf(" %d -> not vacant,", slot.slotNumber)
 			}
 		}
 	}

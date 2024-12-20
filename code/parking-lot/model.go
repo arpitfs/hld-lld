@@ -1,9 +1,9 @@
 package parkinglot
 
 const (
-	Small VehicleType = iota
-	Medium
-	Large
+	VehicleTypeSmall VehicleType = iota
+	VehicleTypeMedium
+	VehicleTypeLarge
 )
 
 type VehicleType int
@@ -30,14 +30,14 @@ type Parking struct {
 
 func NewSlots() []Slot {
 	return []Slot{
-		{slotNumber: 1, isVacant: true, slotType: Small},
-		{slotNumber: 2, isVacant: true, slotType: Medium},
-		{slotNumber: 3, isVacant: true, slotType: Large},
-		{slotNumber: 4, isVacant: true, slotType: Small},
-		{slotNumber: 5, isVacant: true, slotType: Medium},
-		{slotNumber: 6, isVacant: true, slotType: Large},
-		{slotNumber: 7, isVacant: true, slotType: Small},
-		{slotNumber: 8, isVacant: true, slotType: Medium},
+		{slotNumber: 1, isVacant: true, slotType: VehicleTypeSmall},
+		{slotNumber: 2, isVacant: true, slotType: VehicleTypeMedium},
+		{slotNumber: 3, isVacant: true, slotType: VehicleTypeLarge},
+		{slotNumber: 4, isVacant: true, slotType: VehicleTypeSmall},
+		{slotNumber: 5, isVacant: true, slotType: VehicleTypeMedium},
+		{slotNumber: 6, isVacant: true, slotType: VehicleTypeLarge},
+		{slotNumber: 7, isVacant: true, slotType: VehicleTypeSmall},
+		{slotNumber: 8, isVacant: true, slotType: VehicleTypeMedium},
 	}
 }
 
