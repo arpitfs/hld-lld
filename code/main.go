@@ -1,6 +1,6 @@
 package main
 
-import parkinglot "main/parking-lot"
+import messagebroker "main/message-broker"
 
 // uncomment to a specific system
 func main() {
@@ -12,5 +12,7 @@ func main() {
 	//streaming.Streaming()
 	// go backend.Backend()
 	// gateway.StartHandlingRequest()
-	parkinglot.StartParking()
+	// parkinglot.StartParking()
+
+	messagebroker.StartServiceBus()
 }

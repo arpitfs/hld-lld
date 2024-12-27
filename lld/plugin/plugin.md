@@ -1,4 +1,4 @@
-# Plugin - Dynamic Load Library
+## Plugin - Dynamic Load Library
 
 ![plugin](../../assets/plugin.gif)
 

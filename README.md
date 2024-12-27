@@ -25,5 +25,6 @@ It also contains the common design or patterns and protocols to be applied for a
 - [Data-Streaming-SSE](lld/streaming/streaming.md)
 - [Gateway-With-Rate-Limitor](lld/gateway/gateway.md)
 - [ParkingLot](lld/parking/parking.md)
+- [MessageBroker](lld/message-broker/message-broker.md)
 - [WorkerPool](lld/worker-pool/worker.md) - <span style="background-color: blue;">In Progress</span>
 - [High-Performing-API](lld/high-perf-api/high-performing-api.md) - <span style="background-color: blue;">Upcoming</span>
