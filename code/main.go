@@ -1,6 +1,6 @@
 package main
 
-import messagebroker "main/message-broker"
+import workerpool "main/worker-pool"
 
 // uncomment to a specific system
 func main() {
@@ -13,6 +13,6 @@ func main() {
 	// go backend.Backend()
 	// gateway.StartHandlingRequest()
 	// parkinglot.StartParking()
-
-	messagebroker.StartServiceBus()
+	//messagebroker.StartServiceBus()
+	workerpool.StartProcessing()
 }
