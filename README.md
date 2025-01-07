@@ -28,4 +28,5 @@ It also contains the common design or patterns and protocols to be applied for a
 - [ParkingLot](lld/parking/parking.md)
 - [MessageBroker](lld/message-broker/message-broker.md)
 - [WorkerPool](lld/worker-pool/worker.md)
+- [Booking](lld/booking/booking.md)
 - [High-Performing-API](lld/high-perf-api/high-performing-api.md) - <span style="background-color: blue;">Upcoming</span>
