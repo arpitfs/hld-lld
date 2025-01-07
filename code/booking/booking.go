@@ -8,6 +8,7 @@ import (
 )
 
 func Booking() {
+	SetUpSystem()
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Println("Choose an option:")
