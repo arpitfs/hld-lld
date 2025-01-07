@@ -1,6 +1,6 @@
 package main
 
-import workerpool "main/worker-pool"
+import "main/booking"
 
 // uncomment to a specific system
 func main() {
@@ -14,5 +14,6 @@ func main() {
 	// gateway.StartHandlingRequest()
 	// parkinglot.StartParking()
 	//messagebroker.StartServiceBus()
-	workerpool.StartProcessing()
+	// workerpool.StartProcessing()
+	booking.Booking()
 }

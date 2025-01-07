@@ -15,4 +15,10 @@ GET /bookings
 
 ![Design](../../assets/bookinglld.png)
 
+Output:
+
+![Ouput](../../assets/booking-ouput.png)
+
 View the implementation. [Repository](../../code/booking/booking.go)
+
+More scenarios can be integrated with the system like filters name location and concurrent scenarios. 
