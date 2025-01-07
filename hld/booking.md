@@ -19,3 +19,6 @@ The booking service interacts with the payment service and the status and bookin
 The cassendra is used to reduce the latency in case of read heavy system and the notification service is used update the user about the different status of booking. For detailed notification service check this out [NotificationService](../hld/notification.md)
 
 Lastly, the messages queue is polled by an analytic service on top of which the machine learning model is run to get the user insights and more real time driven actions can be take by the system let's say for example update of prices in case of high traffic and others.
+
+### Booking on Cloud
+In case of loadbalancer and alb can be used in case of aws or api gateway to have an inbuilt features. The message queue can be used as SNS or Azure Service Bus. The RDS or azure sql service can be used in case of sql databases and for column database, dynamo database in case of aws and cosmos database in case of azure.
