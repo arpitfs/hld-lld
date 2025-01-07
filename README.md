@@ -8,8 +8,9 @@ It also contains the common design or patterns and protocols to be applied for a
 - [Messaging](hld/messaging.md)
 - [Twitter](hld/twitter.md)
 - [Notification](hld/notification.md)
+- [Booking](hld/booking.md)
 - [VideoStreaming](hld/video-streaming.md) - <span style="background-color: blue;">Upcoming</span>
-- [Booking](hld/booking.md) - <span style="background-color: blue;">Upcoming</span>
+- [PaymentService](hld/video-streaming.md) - <span style="background-color: blue;">Upcoming</span>
 
 ## LLD
 
