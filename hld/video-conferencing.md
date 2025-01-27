@@ -7,7 +7,7 @@ Some of the functionality taken care
 - Video Share
 - Recording
 
-![vc](../assets/video-conf.png)
+![vc](../assets/video-conferencing.png)
 
 The video confrencing application should be build on WebRTC protocol which is feasible for the sceanrio which provides high speed but data loss can be trade off.
 
