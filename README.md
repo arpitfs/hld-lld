@@ -10,6 +10,7 @@ It also contains the common design or patterns and protocols to be applied for a
 - [Notification](hld/notification.md)
 - [Booking](hld/booking.md)
 - [VideoConferencing](hld/video-conferencing.md)
+- [CabBooking](hld/cab.md)
 - [VideoStreaming](hld/video-streaming.md) - <span style="background-color: blue;">Upcoming</span>
 - [PaymentService](hld/video-streaming.md) - <span style="background-color: blue;">Upcoming</span>
 
