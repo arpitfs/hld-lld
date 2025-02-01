@@ -7,7 +7,7 @@ The monitoring agent will be a part of the server its self and which will send t
 
 ![Scaling](../../assets/scaling.png)
 
-The monitoring service will then based on the threshold limit if it exceeds it will set up the services and start a new service or it will send the service configuration to the existing server to spin a new container which then uses the [ServiceRegistry](https://github.com/arpitfs/service-discovery) to register itself so that the new requests can be sent. The [LoadBalancer](lld/load-balancer/loadbalancer.md) will try to get the services which are running and then new requests is forwarded to the new running service. 
+The monitoring service will then based on the threshold limit if it exceeds it will set up the services and start a new service or it will send the service configuration to the existing server to spin a new container which then uses the [ServiceRegistry](https://github.com/arpitfs/service-discovery) to register itself so that the new requests can be sent. The [LoadBalancer](../../lld/load-balancer/loadbalancer.md) will try to get the services which are running and then new requests is forwarded to the new running service. 
 
 # Cloud
 
