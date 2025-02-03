@@ -13,6 +13,7 @@ It also contains the common design or patterns and protocols to be applied for a
 - [CabBooking](hld/cab.md)
 - [FileSharing](hld/file-sharing.md)
 - [Shopping](hld/shopping.md)
+- [SocialPlatform](hld/social-platform.md)
 - [VideoStreaming](hld/video-streaming.md) - <span style="background-color: blue;">Upcoming</span>
 - [PaymentService](hld/video-streaming.md) - <span style="background-color: blue;">Upcoming</span>
 - [Navigation](hld/video-streaming.md) - <span style="background-color: blue;">Upcoming</span>
